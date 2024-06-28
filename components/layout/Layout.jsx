@@ -27,4 +27,8 @@ const Main = styled.div`
   flex: 1;
   padding: 20px;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 `;

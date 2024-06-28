@@ -16,13 +16,7 @@ import OrderSummary from "./others/OrderSummary";
 
 const OrderDetailsMarkup = ({ singleorder = [] }) => {
   return singleorder ? (
-    <div
-      style={{
-        border: "1px solid black",
-        padding: "1rem 0.5rem",
-        borderRadius: "0.75rem",
-      }}
-    >
+    <Main>
       <FlexContainer>
         <div>
           Order ID <code>#{singleorder.id}</code>
@@ -165,7 +159,6 @@ const OrderDetailsMarkup = ({ singleorder = [] }) => {
         </Card>
 
         <Card
-          key={singleorder.id}
           style={{
             boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
           }}
@@ -181,7 +174,7 @@ const OrderDetailsMarkup = ({ singleorder = [] }) => {
           </CardContent>
         </Card>
       </GridContainer2>
-    </div>
+    </Main>
   ) : (
     <h1>Loading...</h1>
   );
@@ -200,10 +193,23 @@ const OrderDetails = ({ purchaseId = "" }) => {
 
 export default OrderDetails;
 
+const Main = styled.div`
+  border: 1px solid black;
+  padding: 1rem 0.5rem;
+  border-radius: 0.75rem;
+
+  @media (max-width: 768px) {
+    border: none;
+  }
+`;
+
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 16px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const GridContainer2 = styled.div`
