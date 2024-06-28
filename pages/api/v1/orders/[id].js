@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     } else {
       res
         .status(404)
-        .json({ success: false, message: "Purchase order not found." });
+        .json({ success: false, message: "Purchase order not found!" });
     }
   } else if (req.method === "PUT") {
     const updatedOrder = await updatePurchaseOrder(id, req.body);
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     } else {
       res
         .status(404)
-        .json({ success: false, message: "Purchase order not found." });
+        .json({ success: false, message: "Purchase order not found!" });
     }
   } else if (req.method === "DELETE") {
     const deleted = await deletePurchaseOrder(id);
@@ -43,9 +43,9 @@ export default async function handler(req, res) {
     } else {
       res
         .status(404)
-        .json({ success: false, message: "Purchase order not found." });
+        .json({ success: false, message: "Purchase order not found!" });
     }
   } else {
-    res.status(405).json({ success: false, message: "Method not allowed." });
+    res.status(405).json({ success: false, message: "Method not allowed!" });
   }
 }
